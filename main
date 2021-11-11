@@ -1,0 +1,31 @@
+async function startProgram() {
+	// The directions on where the sphero goes
+	setSpeed(0)
+	setMainLed({r: 255, g: 0, b: 0})
+	await roll(0, 196, 2)
+	// Fade codes in this set of directions are for to emit the colours of the american flag
+	await fade({r: 255, g: 0, b: 0 }, {r: 255, g: 255, b: 255 }, 0.5)
+	await spin(90, 1.25)
+	await roll(90, 196, 2.32)
+	await fade({r: 255, g: 255, b: 255 }, {r: 0, g: 0, b: 255 }, 0.5)
+	await spin(90, 1.25)
+	await roll(180, 196, 2)
+	await fade({r: 0, g: 0, b: 255 }, {r: 255, g: 0, b: 0 }, 0.5)
+	await spin(90, 1.25)
+	await roll(270, 2.2)
+	await fade({r: 255, g: 0, b: 0 }, {r: 255, g: 255, b: 255 }, 0.5)
+	await spin(90, 1.25)
+	await roll(271, 196, 2.3)
+	await fade({r: 255, g: 255, b: 255 }, {r: 0, g: 0, b: 255 }, 0.5)
+	// For loop with arrays
+ var key = null;
+	// Lists of Key Words in the Constitution placed in one variable
+  var constitution = {"Order": "Union",};
+  var constitution2 = {"Justice": "Tranquility",};
+	// The code to loop the phrase once
+  for (key in constitution){
+	  await speak("We be the people of the United States in " + key + " to form a more perfect " + constitution[key] + " establish “ + constitution2[0] + “, insure domestic “ + constitution2[1] + ", provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.");
+	  // Prevents the loop to repeat forever
+	  break}
+	// Closes the Program
+  exitProgram();}
